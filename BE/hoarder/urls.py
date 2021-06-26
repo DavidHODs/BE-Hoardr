@@ -14,8 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from rest_framework import routers
+from hoarding_app.views import ItemViewSet, ImageViewSet, FreeExerciseViewSet, ItemIDViewSet
+
+router = routers.DefaultRouter()
+router.register(r'itemize', ItemIDViewSet, 'item')
+router.register(r'items', ItemViewSet)
+router.register(r'images', ImageViewSet)
+router.register(r'free_exercises', FreeExerciseViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/', include(router.urls))
 ]
