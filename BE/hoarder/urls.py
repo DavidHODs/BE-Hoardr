@@ -15,8 +15,25 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import permissions
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
 from rest_framework import routers
 from hoarding_app.views import ItemViewSet, ImageViewSet, FreeExerciseViewSet, ItemIDViewSet
+
+
+schema_view = get_schema_view(
+   openapi.Info(
+      title="Hoarder App API",
+      default_version='v1',
+      description="Test description",
+      terms_of_service="https://www.ourapp.com/policies/terms/",
+      # contact=openapi.Contact(email="contact@snippets.local"),
+      license=openapi.License(name="Test License"),
+   ),
+   public=True,
+   # permission_classes=(permissions.AllowAny,),
+)
 
 router = routers.DefaultRouter()
 router.register(r'itemize', ItemIDViewSet, 'item')
@@ -29,5 +46,8 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include(router.urls)),
     path('api/auth', include('authentication.urls')),
+    path('api/auth', include('direct_message.urls')),
+    path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('api/password_reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
+    path('djrichtextfield/', include('djrichtextfield.urls')),
 ]
