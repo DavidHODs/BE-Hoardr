@@ -106,7 +106,7 @@ class ProfileView(UpdateAPIView):
     # permission_classes = (IsAuthenticated,)
     serializer_class = ProfileSerializer
     lookup_field = ('id')
-
+    
 
 
 class LogoutAPIView(APIView):

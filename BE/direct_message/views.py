@@ -3,6 +3,7 @@ from rest_framework.generics import GenericAPIView
 from direct_message.serializers import MessageSerializer
 from rest_framework import response, status, generics, views
 from direct_message.models import Message
+from authentication.models import User
 from rest_framework.response import Response
 
 # Create your views here.
@@ -24,3 +25,5 @@ class MessageAPIView(GenericAPIView):
 
 			return response.Response(serializer.data, status=status.HTTP_200_OK)
 		return response.Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
