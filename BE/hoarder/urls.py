@@ -20,6 +20,21 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from rest_framework import routers
 from hoarding_app.views import ItemViewSet, ImageViewSet, FreeExerciseViewSet, ItemIDViewSet
+from notif import views
+
+
+schema_view = get_schema_view(
+   openapi.Info(
+      title="Hoarder App API",
+      default_version='v1',
+      description="Test description",
+      terms_of_service="https://www.ourapp.com/policies/terms/",
+      # contact=openapi.Contact(email="contact@snippets.local"),
+      license=openapi.License(name="Test License"),
+   ),
+   public=True,
+   # permission_classes=(permissions.AllowAny,),
+)
 
 
 schema_view = get_schema_view(
@@ -46,8 +61,17 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include(router.urls)),
     path('api/auth', include('authentication.urls')),
+<<<<<<< HEAD
     path('api/auth', include('direct_message.urls')),
     path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('api/password_reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
     path('djrichtextfield/', include('djrichtextfield.urls')),
+=======
+    path('api/auth/', include('direct_message.urls')),
+    path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('api/password_reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
+    path('djrichtextfield/', include('djrichtextfield.urls')),
+    path("", views.home, name="home"),
+    path('kw_notifs/', views.notify_me, name="kw_notif")
+>>>>>>> e1388b793271f23709b332851374932bef6ec486
 ]
