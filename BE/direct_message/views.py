@@ -6,11 +6,14 @@ from direct_message.models import Message
 from authentication.models import User
 from rest_framework.response import Response
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 # Create your views here.
 
 
 =======
+=======
+>>>>>>> e1388b793271f23709b332851374932bef6ec486
 from direct_message.serializers import MessageSerializer
 from rest_framework.parsers import JSONParser
 from django.http.response import JsonResponse
@@ -19,6 +22,9 @@ from authentication.serializers import RegisterSerializer
 # Create your views here.
 
 """
+<<<<<<< HEAD
+>>>>>>> e1388b793271f23709b332851374932bef6ec486
+=======
 >>>>>>> e1388b793271f23709b332851374932bef6ec486
 class MessageAPIView(GenericAPIView):
 
@@ -38,8 +44,11 @@ class MessageAPIView(GenericAPIView):
 		return response.Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
+=======
+>>>>>>> e1388b793271f23709b332851374932bef6ec486
 """
 
 def user_list(request, pk=None):
@@ -76,5 +85,9 @@ def message_list(request, sender=None, receiver=None):
         if serializer.is_valid():
             serializer.save()
             return JsonResponse(serializer.data, status=201)
+<<<<<<< HEAD
+        return JsonResponse(serializer.errors, status=400)
+>>>>>>> e1388b793271f23709b332851374932bef6ec486
+=======
         return JsonResponse(serializer.errors, status=400)
 >>>>>>> e1388b793271f23709b332851374932bef6ec486

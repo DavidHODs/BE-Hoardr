@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.log
 *.pot
 *.pyc
@@ -10,6 +11,20 @@ db.sqlite3-journal
 <<<<<<< HEAD
 env/
 =======
+djangoenv/
+env/
+myenv
+>>>>>>> e1388b793271f23709b332851374932bef6ec486
+=======
+*.log
+*.pot
+*.pyc
+*.vscode
+.env
+__pycache__/
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
 djangoenv/
 env/
 myenv

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 from direct_message import views
 from django.urls import path
 
@@ -8,6 +9,8 @@ urlpatterns=[
 ]
 
 =======
+=======
+>>>>>>> e1388b793271f23709b332851374932bef6ec486
 from . import views
 from django.urls import path
 
@@ -27,4 +30,7 @@ urlpatterns = [
     path('api/users/<int:pk>', views.user_list, name='user-detail'),      # GET request for user with id
     path('api/users/', views.user_list, name='user-list'),    # POST for new user and GET for all users list
 ]
+<<<<<<< HEAD
+>>>>>>> e1388b793271f23709b332851374932bef6ec486
+=======
 >>>>>>> e1388b793271f23709b332851374932bef6ec486
